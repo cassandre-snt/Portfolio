@@ -1,0 +1,160 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(200deg, #0f0e35, #73459c,  #3c1158 50%);
+    color: white;
+    text-align: center;
+    line-height: 1.6;
+    height: 150vh; /* Assure que l'arrière-plan couvre toute la hauteur */
+}
+/* Header */
+header {
+    height: 10em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px;
+    background-color: #1a0030;
+}
+/* Style pour le logo */
+.logo {
+    height: 100%;
+    width: 30%;
+    margin: 0; /* Supprime toutes les marges */
+    justify-content: left;
+}
+.logo img {
+    height: 100%; /* Ajuste la hauteur du logo */
+    width: 100%; /* Conserve les proportions */
+}
+.title-container {
+    width: 40%; /* S'assure que le conteneur utilise toute la largeur disponible */
+    text-align: center; /* Garde le texte centré */
+}
+header h1 {
+    font-size: 3rem; /* Réduit légèrement la taille de la police */
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: normal; /* Supprime l'espacement entre les lettres */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+header h2 {
+    font-size: 1.5rem;
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    color: crimson;
+    margin-top:-30px;
+    white-space: nowrap; /* Assure également que ce texte reste sur une seule ligne */
+}
+nav 
+{    
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    margin: 0 auto;
+    font-weight: bold;
+
+}
+
+nav ul{
+    width: 100%;
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+
+}
+
+
+.nav-links li {
+    margin-left: 20px;
+    display: inline-block;
+  
+}
+
+.nav-links a{
+    color: aliceblue;
+}
+
+.searchicon{
+    height: 50px;
+    width: 50px;
+}
+
+/* Conteneur principal */
+.main-container {
+    display: flex; /* Aligne la photo et les cartes horizontalement */
+    justify-content: flex-start; /* Espace les éléments à gauche */
+    padding: 50px;
+    gap: 30px; /* Ajustement de l'espacement entre la photo et les cartes */
+}
+/* Section des cartes */
+.cards-section {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+    gap: 50px; /* Réduit l'espacement entre chaque carte */
+    width: 80%; /* Réduit encore la largeur des cartes */
+}
+/* Style des cartes */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.663);
+    padding: 25px; /* Réduit encore l'espace interne des cartes */
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Transition pour l'effet de survol */
+    width: 100%; /* Les cartes prennent toute la largeur de leur conteneur */
+    max-width: 350px; /* Limite encore la largeur des cartes */
+    margin: 0 auto; /* Centre les cartes horizontalement */
+}
+/* Image des cartes */
+.card-image {
+    width: 100%; /* Garde l'image à la largeur de la carte */
+    height: 120px; /* Réduit la hauteur de l'image pour une taille plus petite */
+    object-fit: cover; /* Pour que l'image s'ajuste correctement */
+    border-radius: 10px;
+}
+/* Titre des cartes */
+.card h4 {
+    font-size: 1.2rem; /* Réduit la taille du titre */
+    margin-top: 8px; /* Réduit l'espace au-dessus du titre */
+    color: #4b006e; /* Couleur violet foncé */
+}
+
+/* Description des cartes */
+.card p {
+    font-size: 0.85rem; /* Réduit la taille de la description */
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.4; /* Réduit l'espacement des lignes */
+}
+/* Bouton des cartes */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px; /* Réduit la taille du bouton */
+    background-color: #652583; /* Violet foncé */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 0.85rem; /* Réduit la taille du texte du bouton */
+}
+
+.btn:hover {
+    background-color: #2c003e; /* Effet de survol plus foncé */
+}

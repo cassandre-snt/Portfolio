@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="homepage.css">
+    <style>
+        #menu {
+            display: none;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            position: absolute;
+        }
+        #menu[aria-hidden="false"] {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <img src="Logo.jpg" alt="Logo Cassandra Sanita">
+        </div>
+        <div class="title-container">
+            <h1>MON PORTFOLIO</h1>
+            <h2>Mon Portfolio</h2>
+        </div>
+        <nav class="navbar" aria-label="Navigation principale">  
+            <ul class="nav-links">
+                <li class="nav-links"><a href="#">Accueil</a></li>
+                <li class="nav-links"><a href="">À propos</a></li>
+                <li class="nav-links"> <a href="#"  tabindex="0"><img class="searchicon" src="https://img.icons8.com/?size=100&id=12773&format=png&color=000000" alt="Search"></a>           
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="main-container">
+            <!-- Section de profil à gauche -->
+            <div class="profile-section">
+                <img src="PDP.jpeg" alt="Photo de Profil" class="profile-image">
+                <div class="profile-text">
+                    <h3>Bienvenue dans mon univers,</h3>
+                    <p>Espaces où créativité et innovation se rencontrent pour donner vie à des projets</p>
+                </div>
+            </div>
+            <!-- Section des cartes à droite -->
+            <div class="cards-section">
+                <div class="card">
+                    <img src="704C6DFF-1856-41FE-A7BF-E08FFCD11EDA.png" alt="Numérique" class="card-image">
+                    <h4>Numérique</h4>
+                    <p>Explorer davantage mes projets numériques.</p>
+                    <a href="/numerique/numerique.html" class="btn" tabindex="0">En savoir plus</a>
+                </div>
+                <div class="card">
+                    <img src="IMG_3481.jpeg" alt="Photos" class="card-image">
+                    <h4>Photos</h4>
+                    <p>Découvrez de nouveaux paysages à travers mes photos.</p>
+                    <a href="/photos/photos.html" class="btn" tabindex="0">En savoir plus</a>
+                </div>
+                <div class="card">
+                    <img src="IMG_4406.jpeg" alt="Manuel" class="card-image">
+                    <h4>Manuel</h4>
+                    <p>Découvrez ma culture à travers mes projets manuels.</p>
+                    <a href="/Manuel/manuel.html" class="btn" tabindex="0">En savoir plus</a>
+                </div>
+            </div>
+        </section>  
+    </main>
+    <footer>
+        <p>&copy; 2024 Portfolio, Inc. Tous droits réservés</p>
+        <ul>
+            <li><a href="#" tabindex="0">Guides</a></li>
+            <li><a href="#" tabindex="0">Conditions d'utilisation</a></li>
+            <li><a href="#" tabindex="0">Informations sur l'entreprise</a></li>
+            <li><a href="#" tabindex="0">Politique de confidentialité et gestion des cookies</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#" tabindex="0"><img src="https://img.icons8.com/?size=100&id=uLWV5A9vXIPu&format=png&color=000000" alt="Facebook"></a>
+            <a href="#" tabindex="0"><img src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000" alt="Instagram"></a>
+            <a href="#" tabindex="0"><img src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000" alt="LinkedIn"></a>
+        </div>
+        <button tabindex="0">Contactez-moi</button>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+
+            // Toggle ARIA attributes
+            menuButton.setAttribute('aria-expanded', String(!isExpanded));
+            menu.setAttribute('aria-hidden', String(isExpanded));
+        });
+    </script>
+</body>
+</html>
