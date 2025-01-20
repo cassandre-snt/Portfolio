@@ -425,6 +425,7 @@ img.image-parcours{
     justify-content: space-evenly;
     align-items: stretch;
     margin-top: 10%;
+    color:black;
 }
 /* Style des cartes */
 .numerique-section {
