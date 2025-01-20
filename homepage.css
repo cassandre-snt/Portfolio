@@ -28,7 +28,12 @@ header {
     height: 100%;
     width: 30%;
     margin: 0; /* Supprime toutes les marges */
-    justify-content: left;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    
 }
 .logo img {
     height: 160px; /* Ajuste la hauteur du logo */
