@@ -28,7 +28,12 @@ header {
     height: 100%;
     width: 30%;
     margin: 0; /* Supprime toutes les marges */
-    justify-content: left;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    
 }
 .logo img {
     height: 160px; /* Ajuste la hauteur du logo */
@@ -42,7 +47,6 @@ header {
 
 .navbar2 {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -53,7 +57,7 @@ header {
     background-color: #652583;
 }
 
-header h1 {
+header h2 {
     font-size: 3rem; /* Réduit légèrement la taille de la police */
     font-family: 'Times New Roman', serif;
     font-weight: bold;
@@ -65,7 +69,7 @@ header h1 {
     white-space: nowrap; /* Empêche le texte de passer à la ligne */
 }
 
-main h2 {
+main h3 {
     font-size: 1.5rem;
     font-family: 'Brush Script MT', cursive;
     font-style: italic;
@@ -396,7 +400,6 @@ main{
 .parcours-section p {
     color: white;
     font-size: 1rem;
-    font-family:fantasy, cursive;
     color: white; /* Couleur claire */
     line-height: 1.5;
     justify-content:left;
@@ -422,9 +425,10 @@ img.image-parcours{
     justify-content: space-evenly;
     align-items: stretch;
     margin-top: 10%;
+    color:black;
 }
 /* Style des cartes */
-#numerique-section {
+.numerique-section {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.663);
