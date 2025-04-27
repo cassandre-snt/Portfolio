@@ -1,3 +1,11 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Georgia', serif;
     margin: 0;
@@ -14,6 +22,12 @@ a:focus {
     outline: 2px solid red;
 }
 
+/* Contenu principal */
+.content {
+    flex: 1; /* Prend tout l'espace disponible entre le header et le footer */
+    padding: 20px;
+}
+
 /* Header */
 header {
     height: 100vh;
@@ -23,6 +37,126 @@ header {
     justify-content: space-evenly;
     align-items: center;
     padding: 0px;
+}
+header h2 {
+    font-size: 3rem; /* Réduit légèrement la taille de la police */
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: normal; /* Supprime l'espacement entre les lettres */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place la vidéo derrière le contenu */
+}
+/* Section de la photo de profil */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre la photo et le texte */
+    text-align: center;
+    width: 250px; /* Largeur de la photo et du texte */
+}
+
+/* Image de profil */
+.profile-image {
+    width: 120%; /* Ajuste la taille de l'image */
+    height: 100%; /* Maintient la forme circulaire */
+    border-radius: 50%; /* Image circulaire */
+    border: 5px solid white; /* Bord transparent pour ajouter l'effet */
+    object-fit: cover; /* Assure que l'image s'ajuste bien dans le cercle */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), /* Néon cyan */
+    0 0 30px rgba(255, 105, 180, 0.6), /* Néon rose */
+    0 0 40px rgba(255, 20, 147, 0.8); /* Néon violet */
+    margin-bottom: 20px; /* Espace entre l'image et le texte */
+    transition: box-shadow 0.3s ease; /* Pour rendre l'effet fluide au survol */
+}
+
+/* Effet néon au survol */
+.profile-image:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 1), /* Néon cyan */
+                0 0 60px rgba(255, 105, 180, 1), /* Néon rose */
+                0 0 80px rgba(255, 20, 147, 1); /* Néon violet */
+    transform: scale(1.05); /* Légère augmentation de taille au survol */
+}
+
+/* Texte sous la photo */
+.profile-text h3 {
+    font-size: 1.5rem; /* Taille de police ajustée */
+    font-family: 'Georgia', serif;
+    color: white; /* Couleur violet foncé */
+}
+
+.profile-text p {
+    font-size: 1rem;
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    color: white; /* Couleur claire */
+    line-height: 1.5;
+}
+   
+.navbart {
+    background-color: #1a0030;
+    position: sticky;
+    top:0;
+    z-index: 1000;
+    
+    
+}
+.navbar{
+    overflow: hidden;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+nav 
+{    
+    height: 100%;
+    width: 30%;
+    background-color: #1a0030;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    margin: 0 auto;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+nav ul{
+    width: 100%;
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.nav-links li {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.nav-links a{
+    color: white;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
 }
 /* Style pour le logo */
 .logo {
@@ -40,34 +174,24 @@ header {
     height: 160px; /* Ajuste la hauteur du logo */
     width: 250px; /* Conserve les proportions */
 }
+
 .title-container {
     width: 40%; /* S'assure que le conteneur utilise toute la largeur disponible */
     text-align: center; /* Garde le texte centré */
-    
 }
 
-.navbar2 {
-    display: flex;
-    align-items: center;
+main{
+    background: linear-gradient(200deg, #0f0e35, #73459c,  #3c1158 50%);
+    height: auto; /* remplace 400vh si trop élevé */
+    padding-bottom: 150px; /* ✅ pour laisser de l’air avant le footer */
 }
 
-#navbar2 {
-    top: 0;
-    overflow: hidden;
-    background-color: #652583;
-    
-}
-
-header h2 {
-    font-size: 3rem; /* Réduit légèrement la taille de la police */
-    font-family: 'Times New Roman', serif;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 0;
-    letter-spacing: normal; /* Supprime l'espacement entre les lettres */
-    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+/* Conteneur principal */
+.main-container {
+    display: flex; /* Aligne la photo et les cartes horizontalement */
+    justify-content: flex-start; /* Espace les éléments à gauche */
+    padding: 50px;
+    gap: 30px; /* Ajustement de l'espacement entre la photo et les cartes */
 }
 
 main h3 {
@@ -78,131 +202,7 @@ main h3 {
     margin-top:-30px;
     white-space: nowrap; /* Assure également que ce texte reste sur une seule ligne */
 }
-.navbartt {
-    background-color: #1a0030;
-    position: sticky;
-    top:0;
-    z-index: 1000;
-    
-}
-nav 
-{    
-    height: 100%;
-    width: 30%;
-    background-color: #1a0030;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-decoration: none;
-    margin: 0 auto;
-    font-weight: bold;
-    position: sticky;
-    top: 0;
-    overflow: hidden;
 
-}
-
-nav ul{
-    width: 100%;
-    list-style-type: none;
-    margin: 0%;
-    padding: 0%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-
-}
-
-
-.nav-links li {
-    margin-left: 20px;
-    display: inline-block;
-  
-}
-
-.nav-links a{
-    color: white;
-    float: left;
-    display: block;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-}
-
-.searchicon{
-    height: 50px;
-    width: 50px;
-}
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Place la vidéo derrière le contenu */
-}
-main{
-    background: linear-gradient(200deg, #0f0e35, #73459c,  #3c1158 50%);
-}
-/* Conteneur principal */
-.main-container {
-    display: flex; /* Aligne la photo et les cartes horizontalement */
-    justify-content: flex-start; /* Espace les éléments à gauche */
-    padding: 50px;
-    gap: 30px; /* Ajustement de l'espacement entre la photo et les cartes */
-}
-
-/* Contenu principal */
-.content {
-    flex: 1; /* Prend tout l'espace disponible entre le header et le footer */
-    padding: 20px;
-  }
-  
-/* Section de la photo de profil */
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centre la photo et le texte */
-    text-align: center;
-    width: 250px; /* Largeur de la photo et du texte */
-}
-
-/* Image de profil */
-.profile-image {
-    width: 150%; /* Ajuste la taille de l'image */
-    height: 100%; /* Maintient la forme circulaire */
-    border-radius: 30%; /* Image circulaire */
-    border: 5px solid white; /* Bord transparent pour ajouter l'effet */
-    object-fit: cover; /* Assure que l'image s'ajuste bien dans le cercle */
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), /* Néon cyan */
-    0 0 30px rgba(255, 105, 180, 0.6), /* Néon rose */
-    0 0 40px rgba(255, 20, 147, 0.8); /* Néon violet */
-    margin-bottom: 20px; /* Espace entre l'image et le texte */
-    transition: box-shadow 0.3s ease; /* Pour rendre l'effet fluide au survol */
-}
-/* Effet néon au survol */
-.profile-image:hover {
-    box-shadow: 0 0 40px rgba(0, 255, 255, 1), /* Néon cyan */
-                0 0 60px rgba(255, 105, 180, 1), /* Néon rose */
-                0 0 80px rgba(255, 20, 147, 1); /* Néon violet */
-    transform: scale(1.05); /* Légère augmentation de taille au survol */
-}
-/* Texte sous la photo */
-.profile-text h3 {
-    font-size: 1.5rem; /* Taille de police ajustée */
-    font-family: 'Georgia', serif;
-    color: white; /* Couleur violet foncé */
-}
-
-.profile-text p {
-    font-size: 1rem;
-    font-family: 'Brush Script MT', cursive;
-    font-style: italic;
-    color: white; /* Couleur claire */
-    line-height: 1.5;
-}
 /* Section des cartes */
 .card-container {
     perspective: 1000px; /* Nécessaire pour l'effet 3D */
@@ -211,16 +211,16 @@ main{
     align-items: center;
     justify-content: center; /* Centre horizontalement les cartes */
     gap: 150px; /* Espace entre les cartes */
-    margin: 100px auto; /* Marge pour espacer les cartes de la navbar */
-  }
+    margin: 100px auto; /* Marge pour espacer les cartes de la navbar */  
+}
 
-  .card-container h4{
+.card-container h4{
     align-items: center;
-  }
+}
   
-  .card {
+.card {
     width: 300px;
-    height: 400px;
+    max-width: 350px;
     transform-style: preserve-3d; /* Active la 3D */
     transition: transform 0.8s ease; /* Animation fluide */
     cursor: pointer;
@@ -235,14 +235,14 @@ main{
     text-align: center;
     transition: transform 0.3s ease-in-out; /* Transition pour l'effet de survol */
     max-width: 350px; /* Limite encore la largeur des cartes */
-  }
+}
   
-  .card:hover {
+.card:hover {
     transform: rotateY(180deg); /* Rotation de 180 degrés sur l'axe Y */
-  }
+}
   
-  .card-front,
-  .card-back {
+.card-front,
+.card-back {
     backface-visibility: hidden; /* Cache la face arrière quand elle est derrière */
     display: flex;
     flex-direction: column;
@@ -250,18 +250,18 @@ main{
     padding: 15px;
     margin: 15px;
     text-align: center;
-    gap: 10px; /* Espacement entre les éléments */
-    
-  }
+    gap: 10px; /* Espacement entre les éléments */ 
+}
   
-  /* Face avant */
-  .card-front {
+/* Face avant */
+.card-front {
     border-radius: 10px;
     background-size: cover;
     border-radius: 50px;
     backface-visibility: hidden; /* Cache la face arrière quand elle est derrière */
-  }
-  .background-image {
+}
+
+.background-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -272,14 +272,14 @@ main{
   /* Face arrière */
     border-radius: 10px;
      filter: blur(4px); /* Applique un flou de 5px */
-  }
+}
  
-  .card-back {
+.card-back {
     transform: rotateY(180deg); /* Retourne la face arrière */
     width: 95%; /* Garde l'image à la largeur de la carte */
     height: 230px; /* Réduit la hauteur de l'image pour une taille plus petite */
     object-fit: cover; /* Pour que l'image s'ajuste correctement */
-    border-radius: 10px;/
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -287,7 +287,7 @@ main{
     border-radius: 50px;
     padding: 20px;
     color: #fff;
-  }
+}
   
 .image-back{
     object-fit: cover; /* Pour que l'image s'ajuste correctement */
@@ -298,6 +298,10 @@ main{
     object-fit: cover;
 }
 
+#numerique, #photos, #manuelle {
+    scroll-margin-top: 150px; /* ajuste si besoin */
+  }
+  
 
 /* Titre des cartes */
 .card h4 {
@@ -377,29 +381,39 @@ main{
         padding: 10px;
     }
 }
-.parcours{
-    background-color:#1a0030;
+
+.parcours-section {
     width: 100%;
-    font-size: 2rem; /* Réduit légèrement la taille de la police */
+    background-color: #1a0030;
+    padding: 30px 0;
+  }
+  
+  .parcours {
+    text-align: center;
+    color: white;
     font-family: 'Times New Roman', serif;
     font-weight: bold;
-    color: white;
-    text-align: center;
-    align-items: center;
-}
-#parcours-section{
+    font-size: 2rem;
+  }
+  
+  .ligne-stmg {
     display: flex;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
-    gap: 25px; /* Réduit l'espacement entre chaque carte */
-    justify-content: space-between;
+    justify-content: space-between; /* espace égal entre logos */
     align-items: center;
-    text-align: center;
-    
-}
-
+    flex-wrap: wrap; /* passer en colonne si l'écran est petit */
+    width: 80%; /* ne pas aller jusqu'au bord */
+    margin: auto; /* centre la ligne */
+  }
+  
+  .logo-stmg {
+    width: 200px; /* taille du logo */
+    height: auto;
+    margin: 20px 0; /* espace vertical quand ils sont en colonne */
+  }
+  
+  
 
 .parcours-section p {
-    color: white;
     font-size: 1rem;
     color: white; /* Couleur claire */
     line-height: 1.5;
@@ -410,6 +424,59 @@ main{
     padding: 50px;
     
 }
+#apropos {
+    scroll-margin-top: 150px; /* ajuste cette valeur selon la hauteur de ta navbar */
+  }
+.apropos-section {
+    width: 100%;
+    background-color: #1a0030;
+    padding: 30px 0;
+}
+.apropos-section p {
+    font-size: 1rem;
+    color: white; /* Couleur claire */
+    line-height: 1.5;
+    justify-content:left;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 50px;
+    
+}
+.apropos {
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .image-carte-nc, .image-judo, .image-voyage {
+    width: 300px; /* taille du logo */
+    height: 300px;
+    margin: 20px 0; /* espace vertical quand ils sont en colonne */
+    border-radius: 10px;
+    margin-top: 50px; /* Espace entre l'image et le texte */
+    transition: box-shadow 0.3s ease; /* Pour rendre l'effet fluide au survol */
+}
+.image-voyage:hover {
+    box-shadow: 0 0 40px rgb(84, 101, 196), /* Néon cyan */
+                0 0 60px rgb(138, 65, 211), /* Néon rose */
+                0 0 80px rgb(243, 86, 240); /* Néon violet */
+    transform: scale(1.05); /* Légère augmentation de taille au survol */
+}
+.image-carte-nc:hover {
+    box-shadow: 0 0 40px rgb(84, 101, 196), /* Néon cyan */
+                0 0 60px rgb(138, 65, 211), /* Néon rose */
+                0 0 80px rgb(243, 86, 240); /* Néon violet */
+    transform: scale(1.05); /* Légère augmentation de taille au survol */
+}
+.image-judo:hover {
+    box-shadow: 0 0 40px rgb(84, 101, 196), /* Néon cyan */
+                0 0 60px rgb(138, 65, 211), /* Néon rose */
+                0 0 80px rgb(243, 86, 240); /* Néon violet */
+    transform: scale(1.05); /* Légère augmentation de taille au survol */
+}
+
 img.image-parcours{
     width: 20%;
     height: 100%;
@@ -419,7 +486,21 @@ img.image-parcours{
     justify-content: center;
 }
 
-.numerique-container {
+.numerique, .photos, .manuelle {
+    margin-bottom: 40px; /* espace sous le titre */
+    font-size: 2rem;
+    color: white;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    text-align: center;
+  }
+.numerique-cartes, .photos-cartes, .manuelle-cartes {
+    display: flex;
+    flex-wrap: wrap; /* passe en colonne sur mobile */
+    justify-content: center;
+    gap: 30px; /* espace entre les cartes */
+}  
+.numerique-container, .photos-container, .manuelle-container{
     display: flex;
     flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
     gap: 25px; /* Réduit l'espacement entre chaque carte */
@@ -428,8 +509,9 @@ img.image-parcours{
     margin-top: 10%;
     color:black;
 }
+
 /* Style des cartes */
-.numerique-section {
+.numerique-section, .photos-section, .manuelle-section{
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.663);
@@ -444,28 +526,131 @@ img.image-parcours{
     width: 280px;
     max-width: 350px; /* Limite encore la largeur des cartes */
     margin: 8.6px; /* Centre les cartes horizontalement */
+    margin-bottom: 50px;
 }
+
 /* Image des cartes */
-.numerique-image {
-    width: 95%; /* Garde l'image à la largeur de la carte */
-    height: 230px; /* Réduit la hauteur de l'image pour une taille plus petite */
-    object-fit: cover; /* Pour que l'image s'ajuste correctement */
+.numerique-image, .photos-image, .manuelle-image {
+    width: 100%;
+    height: 250px; /* hauteur fixe un peu plus grande pour tout aligner */
+    object-fit: cover;
+    object-position: center; /* bien centrer l'image dans sa boîte */
     border-radius: 10px;
+    margin-bottom: 15px; /* espace forcé entre l'image et le titre */
 }
+
 /* Titre des cartes */
-#numerique-section h4 {
-    font-size: 1.2rem; /* Réduit la taille du titre */
-    margin-top: 8px; /* Réduit l'espace au-dessus du titre */
-    color: #4b006e; /* Couleur violet foncé */
+#numerique-section h4, #photos-section h4 , #manuelle-section h4{
+    min-height: 50px; /* Tous les titres prendront au moins 50px de hauteur */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4b006e;
 }
 
 /* Description des cartes */
-#numerique-section p {
+#numerique-section p , #photos-section p,#manuelle-section p{
     font-size: 0.85rem; /* Réduit la taille de la description */
     color: #555;
     margin-top: 8px;
     line-height: 1.4; /* Réduit l'espacement des lignes */
 }
+
+.manuelle-image-raie {
+    width: 95%; /* Garde l'image à la largeur de la carte */
+    height: 230px; /* Réduit la hauteur de l'image pour une taille plus petite */
+    object-fit: cover; /* Pour que l'image s'ajuste correctement */
+    border-radius: 10px;
+    transform: rotate(90deg); /* pivote l'image de 90 degrés */
+}
+  
+.manuelle-image-oeil {
+    width: 95%; /* Garde l'image à la largeur de la carte */
+    height: 230px; /* Réduit la hauteur de l'image pour une taille plus petite */
+    object-fit: cover; /* Pour que l'image s'ajuste correctement */
+    border-radius: 10px;
+    transform: rotate(-90deg); /* pivote l'image de 90 degrés */
+}
+
+.manuelle-image-paysage {
+    width: 95%; /* Garde l'image à la largeur de la carte */
+    height:230px; /* Réduit la hauteur de l'image pour une taille plus petite */
+    object-fit: cover; /* Pour que l'image s'ajuste correctement */
+    border-radius: 10px;
+  }
+/* Contact */
+.contact-container {
+    display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+    min-height: 10vh;       /* prend toute la hauteur de la fenêtre */
+    padding: 50px 0;         /* ajoute un peu de respiration en haut et en bas */
+}
+  
+.contact-card {
+    width: 500px;
+    padding: 50px;
+    border-radius: 15px;
+    align-items: center;
+    overflow: visible;
+    min-height: 500px; /* ✅ hauteur minimale au lieu de fixe */
+    position: relative;
+    z-index: 2;
+    background-color: #CEBADE;
+}
+
+form label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #73459c;
+  font-size: 14px;
+}
+
+form input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #73459c;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  color: #73459c;
+  font-size: 14px;
+}
+
+form input::placeholder {
+  color: #73459c;
+}
+
+button {
+  background: #fff;
+  color: #73459c;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #ffe1e1;
+}
+
+.back-link {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #73459c;
+  text-decoration: none;
+}
+
 /* Bouton des cartes */
 .btn {
     display: inline-block;
@@ -493,6 +678,8 @@ footer {
     text-align: center;
     bottom: 0;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 footer ul {
