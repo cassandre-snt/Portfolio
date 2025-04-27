@@ -69,8 +69,6 @@ header h2 {
 
 /* Image de profil */
 .profile-image {
-    width: 120%; /* Ajuste la taille de l'image */
-    height: 100%; /* Maintient la forme circulaire */
     border-radius: 50%; /* Image circulaire */
     border: 5px solid white; /* Bord transparent pour ajouter l'effet */
     object-fit: cover; /* Assure que l'image s'ajuste bien dans le cercle */
@@ -265,8 +263,6 @@ main h3 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     z-index: -1; /* Place la vidéo derrière le contenu */
   /* Face arrière */
@@ -292,8 +288,6 @@ main h3 {
 .image-back{
     object-fit: cover; /* Pour que l'image s'ajuste correctement */
     border-radius: 10px;
-    width: 100%;
-    height: 50%;
     border-radius: 8px;
     object-fit: cover;
 }
@@ -451,8 +445,6 @@ main h3 {
     font-size: 2rem;
   }
   .image-carte-nc, .image-judo, .image-voyage {
-    width: 300px; /* taille du logo */
-    height: 300px;
     margin: 20px 0; /* espace vertical quand ils sont en colonne */
     border-radius: 10px;
     margin-top: 50px; /* Espace entre l'image et le texte */
@@ -478,8 +470,6 @@ main h3 {
 }
 
 img.image-parcours{
-    width: 20%;
-    height: 100%;
     color: white;
     display: flex;
     align-items: center;
@@ -531,8 +521,6 @@ img.image-parcours{
 
 /* Image des cartes */
 .numerique-image, .photos-image, .manuelle-image {
-    width: 100%;
-    height: 250px; /* hauteur fixe un peu plus grande pour tout aligner */
     object-fit: cover;
     object-position: center; /* bien centrer l'image dans sa boîte */
     border-radius: 10px;
