@@ -70,6 +70,7 @@ header h2 {
 /* Image de profil */
 .profile-image {
     border-radius: 50%; /* Image circulaire */
+    object-position: center 20%; 
     border: 5px solid white; /* Bord transparent pour ajouter l'effet */
     object-fit: cover; /* Assure que l'image s'ajuste bien dans le cercle */
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), /* Néon cyan */
