@@ -596,6 +596,7 @@ navToggle.addEventListener('click', () => {
   navToggle.classList.toggle('open', isOpen);
   navToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
   navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
 function closeMobileMenu() {
@@ -603,6 +604,7 @@ function closeMobileMenu() {
   navToggle.classList.remove('open');
   navToggle.setAttribute('aria-label', 'Ouvrir le menu');
   navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -951,7 +953,7 @@ if (cvForm) {
         day: 'numeric', hour: '2-digit', minute: '2-digit'
       });
 
-      emailjs.send("service_qk09wyk", "template_tcs8hsh", {
+      emailjs.send("service_qk09wyk", "template_mxeh8m5", {
         message:
           'Bonjour Cassandre,\n\n' +
           `Quelqu'un (${emailValue}) vient de télécharger ton CV depuis ton portfolio !\n\n` +
