@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Cassandre Sanita | BUT MMI · Graphisme</title>
+  <meta name="description" content="Portfolio de Cassandre Sanita, étudiante en 3ème année de BUT MMI, future graphiste originaire de Nouméa, Nouvelle-Calédonie. Découvrez mes projets en design graphique, motion design, communication et photographie." />
+  <meta name="author" content="Cassandre Sanita" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="cs.svg" />
+  <link rel="alternate icon" href="cs.svg" />
+  <!-- Open Graph (LinkedIn, réseaux sociaux) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio — Cassandre Sanita | Graphisme & BUT MMI" />
+  <meta property="og:description" content="Étudiante en BUT MMI, future graphiste originaire de Nouméa. Identité visuelle, motion design, communication et photographie." />
+  <meta property="og:image" content="photo_de_profil.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Preconnect pour réduire la latence DNS/TLS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <!-- Google Fonts — non bloquant grâce à display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome — chargement non bloquant -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  <!-- Préchargement de l'image hero (above the fold) -->
+  <link rel="preload" as="image" href="photo_de_profil.jpg" />
+  <!-- EmailJS — chargé en différé, n'interrompt plus le rendu -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="javascript:void(0)" class="nav-logo" data-page="accueil">
+        <img src="cs.svg" alt="Logo CS" class="nav-logo-img" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="javascript:void(0)" class="nav-link active" data-page="accueil">Accueil</a></li>
+        <li><a href="javascript:void(0)" class="nav-link" data-page="apropos">À propos</a></li>
+        <li><a href="javascript:void(0)" class="nav-link" data-page="projets">Projets</a></li>
+        <li><a href="javascript:void(0)" class="nav-link" data-page="competences">Compétences</a></li>
+        <li><a href="javascript:void(0)" class="nav-link nav-cta" data-page="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== PAGE : ACCUEIL ===================== -->
+  <section id="page-accueil" class="page active">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Portfolio de</p>
+        <h1 class="hero-title">Cassandre <span class="accent">Sanita</span></h1>
+        <p class="hero-sub">Étudiante en 3ème année de BUT MMI · Future Graphiste</p>
+        <p class="hero-desc">
+          Originaire de Nouméa, Nouvelle-Calédonie, je porte en moi une culture plurielle
+          forgée par les voyages, la diversité des peuples et la richesse de mon île.
+          Graphiste en devenir, je mets cette identité unique au cœur de chaque création.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" data-page="projets">Voir mes projets</button>
+          <button class="btn-outline" data-page="apropos">En savoir plus</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="hero-photo-frame">
+          <img src="photo_de_profil.jpg" alt="Photo de profil" class="hero-photo-img" fetchpriority="high" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-n">3</span><span class="stat-l">Années de formation</span></div>
+      <div class="stat"><span class="stat-n">10+</span><span class="stat-l">Outils créatifs &amp; numériques</span></div>
+      <div class="stat"><span class="stat-n">11</span><span class="stat-l">Ans de Judo</span></div>
+    </div>
+
+    <!-- Aperçu projets -->
+    <div class="home-projects">
+      <h2 class="section-title">Projets en vedette</h2>
+      <div class="featured-grid" id="featuredGrid">
+        <!-- Rempli par JS -->
+      </div>
+      <div class="center-btn">
+        <button class="btn-outline" data-page="projets">Voir tous mes projets →</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== PAGE : À PROPOS ===================== -->
+  <section id="page-apropos" class="page">
+    <div class="page-wrap">
+
+      <!-- ── Intro ── -->
+      <div class="about-hero">
+        <!-- Colonne 1 : photo -->
+        <div class="about-photo-col">
+          <div class="about-photos-row">
+            <img src="photo_de_profil.jpg" alt="Photo de profil" class="about-photo-img" loading="lazy" />
+          </div>
+          <div class="about-tags">
+            <span class="tag">Graphisme</span>
+            <span class="tag">BUT MMI</span>
+            <span class="tag">3ème année</span>
+            <span class="tag">Nouvelle-Calédonie</span>
+            <span class="tag">Judoka</span>
+            <span class="tag">Créativité</span>
+          </div>
+        </div>
+
+        <!-- Colonne 2 : texte -->
+        <div class="about-intro-col">
+          <p class="eyebrow">Présentation</p>
+          <h1 class="page-title">Cassandre <span class="accent">Sanita</span></h1>
+          <p class="tagline">"Faire vivre la Nouvelle-Calédonie à travers chaque création."</p>
+          <p class="about-text">
+            Je suis Cassandre Sanita, originaire de Nouméa, en Nouvelle-Calédonie. Partie
+            en France pour mes études, j'ai grandi dans une île où diversité culturelle,
+            biodiversité et richesses culinaires coexistent et se partagent. Ce bagage
+            — nourri par les voyages, la découverte de cultures et de paysages multiples —
+            est devenu mon moteur créatif. Aujourd'hui, chaque fois que c'est possible,
+            je fais vivre la Nouvelle-Calédonie dans mes projets pour en montrer les richesses
+            au-delà de l'image que l'on en a. Je suis aussi sportive depuis l'enfance :
+            11 ans de Judo dont 3 en haut niveau, de la danse, de la guitare, du tennis,
+            du handball… La discipline et la persévérance du sport ont façonné ma façon
+            d'aborder le design.
+          </p>
+        </div>
+
+        <!-- Colonne 3 : carte NC -->
+        <div class="about-origin-col">
+          <div class="about-origin-card">
+            <p class="origin-label"><i class="fas fa-map-marker-alt"></i> Origine</p>
+            <img src="NC.jpg" alt="Carte de la Nouvelle-Calédonie" class="about-nc-img" loading="lazy" />
+            <div class="origin-info">
+              <span class="origin-city">Nouméa</span>
+              <span class="origin-country">Nouvelle-Calédonie</span>
+              <span class="origin-motto">« Terre de parole, terre de partage »</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Qui suis-je / Pourquoi MMI ── -->
+      <div class="about-section">
+        <h2 class="section-heading">Qui suis-je ?</h2>
+        <div class="two-col">
+          <div class="col-card">
+            <h3><i class="fas fa-question-circle"></i> Pourquoi les métiers du multimédia ?</h3>
+            <p>
+              Depuis petite, je suis créative : je dessinais des petites bandes dessinées
+              de Noël pour ma petite sœur, je pratiquais la guitare, plusieurs styles de
+              danse, le sport… J'ai toujours eu besoin d'un moyen d'expression. Le
+              multimédia réunit tout ce que j'aime — image, récit, esthétique — et me
+              donne les outils pour transformer mes inspirations en créations qui parlent
+              aux autres.
+            </p>
+          </div>
+          <div class="col-card">
+            <h3><i class="fas fa-route"></i> Comment j'ai choisi cette formation ?</h3>
+            <p>
+              Après mon bac en Nouvelle-Calédonie, j'ai choisi de venir en France
+              métropolitaine pour suivre le BUT MMI. Son approche pluridisciplinaire —
+              design, web, vidéo, communication — correspondait exactement à ma vision :
+              avoir les moyens techniques et créatifs pour porter des projets
+              visuellement forts tout en intégrant une dimension culturelle et narrative
+              qui me tient à cœur.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Mot qui définit ── -->
+      <div class="about-section highlight-box">
+        <h2 class="section-heading">Le mot qui me définit</h2>
+        <div class="word-card">
+          <span class="big-word">" Créative "</span>
+          <p>
+            Ce mot résume tout ce que je suis. Créer, ce n'est pas seulement faire de belles
+            choses — c'est transformer ce qu'on a vécu, ce qu'on a vu, ce qu'on a ressenti
+            en quelque chose que les autres peuvent voir et ressentir à leur tour. Grandir
+            en Nouvelle-Calédonie, voyager, pratiquer le sport à haut niveau, dessiner dès
+            l'enfance : tout cela m'a appris que la créativité naît de la vie qu'on mène.
+            Chaque projet est pour moi l'occasion de raconter quelque chose de vrai.
+          </p>
+          <p style="margin-top:1rem">
+            J'ai toujours eu cette envie profonde de m'améliorer et d'apprendre — que ce soit
+            dans ma pratique sportive ou dans mon approche du design. Le sport est une grande
+            partie de qui je suis : il m'a forgé la rigueur, le dépassement de soi et la
+            capacité à me relever. Ma culture calédonienne m'a transmis autre chose : l'humilité,
+            le respect et le goût du partage. Chez nous, la devise est
+            <em>« Terre de parole, terre de partage »</em> — des valeurs que je porte dans
+            chacune de mes créations.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── Qualités & défauts ── -->
+      <div class="about-section">
+        <h2 class="section-heading">Qualités &amp; défauts</h2>
+        <div class="qd-grid">
+          <div class="qd-card positive">
+            <div class="qd-icon"><i class="fas fa-eye"></i></div>
+            <h3>Sens du détail</h3>
+            <p>Je porte une attention particulière à chaque élément visuel : alignement,
+            hiérarchie typographique, harmonie des couleurs. Ce souci du détail garantit
+            qualité et cohérence dans mes productions.</p>
+          </div>
+          <div class="qd-card positive">
+            <div class="qd-icon"><i class="fas fa-lightbulb"></i></div>
+            <h3>Créativité</h3>
+            <p>Je ne manque pas d'idées et j'aime explorer des directions inattendues.
+            Je m'inspire de tout mon environnement — art, nature, culture — pour renouveler
+            constamment mon approche créative.</p>
+          </div>
+          <div class="qd-card positive">
+            <div class="qd-icon"><i class="fas fa-arrows-spin"></i></div>
+            <h3>Adaptabilité</h3>
+            <p>En équipe ou en solo, face à un brief précis ou ouvert, je sais m'adapter
+            aux contraintes et aux besoins pour livrer un rendu pertinent tout en apportant
+            ma touche personnelle.</p>
+          </div>
+          <div class="qd-card negative">
+            <div class="qd-icon"><i class="fas fa-clock"></i></div>
+            <h3>Perfectionnisme</h3>
+            <p>Je peux passer trop de temps sur des détails, ralentissant ma productivité.
+            J'apprends à trouver l'équilibre entre excellence et efficacité en me fixant
+            des délais fermes.</p>
+          </div>
+          <div class="qd-card negative">
+            <div class="qd-icon"><i class="fas fa-comment-slash"></i></div>
+            <h3>Timidité à l'oral</h3>
+            <p>Présenter mon travail face à un groupe me demande un effort. Je travaille
+            activement ma prise de parole lors des soutenances et des revues de projets
+            pour progresser sur ce point.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Parcours académique ── -->
+      <div class="about-section">
+        <h2 class="section-heading">Parcours académique</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-date">2023 · Nouméa, Nouvelle-Calédonie</span>
+              <h3>Baccalauréat STMG — Spécialité SIG · Lycée Blaise Pascal Nouméa</h3>
+              <p>Bac Sciences et Technologies du Management et de la Gestion, spécialité
+              Systèmes d'Information de Gestion, obtenu en Nouvelle-Calédonie. Cette
+              formation m'a donné une culture des outils numériques, de la gestion de
+              l'information et de la communication, socle idéal pour intégrer le BUT MMI.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-date">2024 – 2025 · Corte, Corse</span>
+              <h3>BUT MMI — 1ère année · IUT Di Corsica</h3>
+              <p>Première année de formation en Métiers du Multimédia et de l'Internet à
+              l'IUT Di Corsica de Corte. Découverte du design graphique, du développement
+              web, de la vidéo et de la communication digitale dans un cadre insulaire
+              riche en culture.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-date">2025 – 2026 · France, Castres</span>
+              <h3>BUT MMI — 2ème année · IUT Paul Sabatier AUCH Castres</h3>
+              <p>Deuxième année de formation en Métiers du Multimédia et de l'Internet,
+              désormais validée. Design graphique,
+              développement web, vidéo, motion design et communication digitale.
+              Chaque projet est l'occasion de mettre ma sensibilité calédonienne
+              au service de créations visuelles fortes.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-date">Présent· France, Castres</span>
+              <h3>BUT MMI — 3ème année · IUT Paul Sabatier AUCH Castres</h3>
+              <p>Actuellement en troisième année de formation en Métiers du Multimédia et de l'Internet, au même IUT. Je poursuis le développement de mes compétences en design graphique, développement web, vidéo, motion design et communication digitale.</p>
+            </div>
+          </div>
+        </div>
+        <div class="parcours-aide">
+          <h3>Comment ce parcours m'a-t-il aidée ?</h3>
+          <p>
+            Grandir en Nouvelle-Calédonie, dans une culture fondée sur le partage et le respect
+            — là où la devise est <em>« Terre de parole, terre de partage »</em> — m'a donné
+            un regard singulier sur le monde et une vraie humilité. Mon bac STMG spécialité SIG
+            m'a initiée à la gestion de l'information et aux outils numériques — une base solide
+            pour le BUT MMI. Mais c'est surtout le sport qui m'a construite : 11 ans de Judo
+            dont 3 à haut niveau m'ont appris la rigueur, le dépassement de soi et la persévérance.
+            Aujourd'hui je pratique aussi le volley-ball, et cette envie constante de progresser,
+            de toujours apprendre et de m'améliorer, je la retrouve dans chacun de mes projets
+            de design.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── Aspirations professionnelles ── -->
+      <div class="about-section">
+        <h2 class="section-heading">Aspirations professionnelles</h2>
+        <p class="section-intro">
+          Je souhaite devenir graphiste spécialisée en identité visuelle et direction
+          artistique, tout en continuant à faire rayonner la Nouvelle-Calédonie à travers
+          mes créations. Voici comment j'envisage mon parcours :
+        </p>
+        <div class="aspirations-grid">
+          <div class="asp-card">
+            <div class="asp-header">
+              <span class="asp-icon"><i class="fas fa-seedling"></i></span>
+              <span class="asp-label">Court terme — 1 an</span>
+            </div>
+            <h3>Valider mon BUT &amp; décrocher une alternance</h3>
+            <p>
+              Intégrer une agence, un studio ou une entreprise en alternance afin de
+              développer mes compétences en design graphique, identité visuelle et
+              communication visuelle, tout en les confrontant à des projets professionnels.
+              Continuer à construire un portfolio qui reflète mon univers et met à l’honneur
+              la culture et les richesses de la Nouvelle-Calédonie.
+            </p>
+          </div>
+          <div class="asp-card">
+            <div class="asp-header">
+              <span class="asp-icon"><i class="fas fa-tree"></i></span>
+              <span class="asp-label">Moyen terme — 5 ans</span>
+            </div>
+            <h3>Graphiste confirmée en agence</h3>
+            <p>
+              Après une poursuite d'études en école de graphisme ou en licence pro,
+              obtenir un poste de graphiste confirmée. Approfondir le branding, la
+              typographie et le motion design. Travailler idéalement sur des projets
+              à dimension culturelle — notamment calédoniens — pour valoriser
+              les identités visuelles singulières.
+            </p>
+          </div>
+          <div class="asp-card">
+            <div class="asp-header">
+              <span class="asp-icon"><i class="fas fa-mountain"></i></span>
+              <span class="asp-label">Long terme — 10 ans</span>
+            </div>
+            <h3>Directrice artistique ou studio indépendant</h3>
+            <p>
+              Créer mon propre studio de design ou occuper un poste de directrice artistique
+              au sein d'une agence reconnue. À terme, développer des projets en lien avec
+              la Nouvelle-Calédonie — contribuer à mettre en lumière ses richesses
+              culturelles, humaines et naturelles à travers le design.
+            </p>
+          </div>
+        </div>
+
+        <div class="jobs-section">
+          <h3>Métiers qui m'intéressent</h3>
+          <div class="jobs-grid">
+            <div class="job-item"><i class="fas fa-palette"></i><span>Graphiste</span></div>
+            <div class="job-item"><i class="fas fa-pencil-ruler"></i><span>Directrice artistique</span></div>
+            <div class="job-item"><i class="fas fa-mobile-screen-button"></i><span>Designer UX/UI</span></div>
+            <div class="job-item"><i class="fas fa-tag"></i><span>Brand designer</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Approche & philosophie ── -->
+      <div class="about-section highlight-box">
+        <h2 class="section-heading">Mon approche du design</h2>
+        <div class="philosophy-grid">
+          <div class="phil-item">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <h3>Innovation</h3>
+            <p>Questionner les conventions et proposer des solutions visuelles inattendues.</p>
+          </div>
+          <div class="phil-item">
+            <i class="fas fa-leaf"></i>
+            <h3>Durabilité</h3>
+            <p>Intégrer les enjeux environnementaux et éthiques dans chaque choix créatif.</p>
+          </div>
+          <div class="phil-item">
+            <i class="fas fa-user-check"></i>
+            <h3>Expérience utilisateur</h3>
+            <p>Concevoir des designs lisibles, accessibles et émotionnellement engageants.</p>
+          </div>
+          <div class="phil-item">
+            <i class="fas fa-align-center"></i>
+            <h3>Cohérence</h3>
+            <p>Assurer une harmonie visuelle et narrative à travers tous les supports.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Formation (section À propos officielle) ── -->
+      <div class="about-section">
+        <h2 class="section-heading">Formation &amp; expériences</h2>
+        <div class="formation-grid">
+          <div class="formation-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>BUT MMI</h3>
+            <p><strong>IUT — France</strong><br/>2024 — 2027<br/>
+            Après avoir validé ma deuxième année, je suis actuellement en troisième année de BUT MMI dans le même IUT. Formation en design graphique, web, vidéo, motion design et communication digitale.</p>
+          </div>
+          <div class="formation-card">
+            <i class="fas fa-briefcase"></i>
+            <h3>Stages</h3>
+            <p><strong>Club La Salle — Bettancourt-la-Ferrée, secteur Saint-Dizier</strong><br/>27 avril — 19 juin 2026<br/>
+            Lors de mon stage de deuxième année, j'ai mis ces compétences en pratique à travers différents projets : création d'une charte graphique, affiches et flyers, contenus pour les réseaux sociaux, photographie, vidéo et refonte d'un site internet. Cette expérience m'a appris à adapter une communication à l'identité, aux objectifs et au public d'une structure.</p>
+            <p style="margin-top:.75rem"><strong>DRH GIE CEDA — McDonald's Nouméa</strong><br/>Stage — Ressources humaines · Nouvelle-Calédonie<br/>
+            Stage en ressources humaines hors filière MMI, mais fondateur dans mon parcours : j'ai interviewé tous les services de l'entreprise pour découvrir les métiers. En observant le service marketing concevoir des panneaux publicitaires, j'ai su que c'était la voie qui me correspondait — et c'est ce qui m'a orientée vers le design graphique.</p>
+
+            <p style="margin-top:.75rem"><strong>Advertiz3D — Graphisme &amp; communication</strong><br/>
+            Création de supports de communication web et print, conception graphique et adaptation de visuels selon les besoins du client. Cette expérience est notamment illustrée par mon projet d'affiche Gamescom présenté dans mon portfolio.</p>
+
+            <p style="margin-top:.75rem"><strong>Bénévolat — Club de Judo JCMD</strong><br/>
+            Participation à l'organisation d'événements sportifs, aide à la communication, gestion logistique, tenue de stand et coordination lors des manifestations du club.</p>
+          </div>
+          <div class="formation-card">
+            <i class="fas fa-tools"></i>
+            <h3>Compétences clés</h3>
+            <p>Adobe Illustrator · Photoshop · InDesign · Figma ·
+            HTML/CSS · Photographie </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== PAGE : PROJETS (GRILLE) ===================== -->
+  <section id="page-projets" class="page">
+    <div class="page-wrap">
+      <p class="eyebrow">Mon travail</p>
+      <h1 class="page-title">Mes <span class="accent">Projets</span></h1>
+      <p class="page-subtitle">
+        Projets réalisés dans le cadre du BUT MMI et à titre personnel, classés par compétence.
+      </p>
+
+      <!-- Filtres -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="design-graphique">Design Graphique</button>
+        <button class="filter-btn" data-filter="web-digital">Web &amp; Digital</button>
+        <button class="filter-btn" data-filter="audiovisuel">Audiovisuel</button>
+        <button class="filter-btn" data-filter="communication">Communication</button>
+      </div>
+
+      <!-- Grille -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Rempli par JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PAGE : DÉTAIL PROJET ===================== -->
+  <section id="page-projet-detail" class="page">
+    <div class="page-wrap">
+      <button class="back-btn" data-page="projets">
+        <i class="fas fa-arrow-left"></i> Retour aux projets
+      </button>
+      <div id="projectDetailContent"></div>
+    </div>
+  </section>
+
+ <!-- ===================== PAGE : COMPÉTENCES ===================== -->
+  <section id="page-competences" class="page">
+    <div class="page-wrap">
+      <p class="eyebrow">Ce que je sais faire</p>
+      <h1 class="page-title">Mes <span class="accent">Compétences</span></h1>
+
+      <div class="skills-philosophy">
+        <i class="fas fa-infinity"></i>
+        <blockquote>« Apprendre est un mouvement, jamais un point d'arrivée. »</blockquote>
+        <p>Ces jauges illustrent ma maîtrise actuelle de chaque outil. Vous remarquerez qu'aucune n'atteint les 100% : c'est une volonté de souligner que dans nos métiers créatifs, l'évolution est permanente. Chaque projet est une opportunité de découvrir une nouvelle technique ou d'affiner mon regard pour tendre vers l'excellence.</p>
+      </div>
+
+      <!-- Techniques -->
+      <div class="skills-section">
+        <h2 class="skills-heading"><i class="fas fa-laptop-code"></i> Compétences techniques</h2>
+
+        <h3 class="skills-sub">Logiciels &amp; outils</h3>
+        <div class="skill-list">
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-adobe"></i> Adobe Photoshop</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+            <p class="skill-desc">Retouche photo, montages, création de visuels pour le web et le print.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-adobe"></i> Adobe Illustrator</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+            <p class="skill-desc">Logos, illustrations vectorielles, chartes graphiques, affiches.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-adobe"></i> Adobe InDesign</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div>
+            <p class="skill-desc">Mise en page de magazines, brochures et supports print.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-adobe"></i> Adobe After Effects</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div>
+            <p class="skill-desc">Motion design, animations graphiques, génériques vidéo.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-adobe"></i> Adobe Premiere Pro</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div>
+            <p class="skill-desc">Montage vidéo, assemblage, rythme et habillage.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-figma"></i> Figma</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div>
+            <p class="skill-desc">Maquettage UX/UI, prototypage interactif, design systems.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-pen-nib"></i> Canva</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+            <p class="skill-desc">Création de supports de communication et contenus digitaux.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-video"></i> CapCut</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+            <p class="skill-desc">Montage vidéo et contenus pour les réseaux sociaux.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-code"></i> VSCode</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
+            <p class="skill-desc">Édition et intégration de projets web en HTML/CSS.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-html5"></i> HTML / CSS</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
+            <p class="skill-desc">Intégration web, responsive design, animations CSS.</p>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-github"></i> GitHub</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
+            <p class="skill-desc">Gestion et hébergement de projets web.</p>
+          </div>
+        </div>
+
+        <h3 class="skills-sub" style="margin-top:2rem">Techniques de création</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">Identité visuelle &amp; branding</span>
+          <span class="tech-tag">Typographie</span>
+          <span class="tech-tag">Maquettage print &amp; web</span>
+          <span class="tech-tag">Illustration vectorielle</span>
+          <span class="tech-tag">Photographie</span>
+          <span class="tech-tag">Montage vidéo</span>
+          <span class="tech-tag">Motion design</span>
+          <span class="tech-tag">Prototypage</span>
+          <span class="tech-tag">Direction artistique</span>
+        </div>
+      </div>
+
+      <!-- Créatives -->
+      <div class="skills-section">
+        <h2 class="skills-heading"><i class="fas fa-palette"></i> Compétences créatives</h2>
+        <div class="creative-grid">
+          <div class="creative-card">
+            <i class="fas fa-paintbrush"></i>
+            <h3>Conception graphique &amp; design visuel</h3>
+            <p>Création de logos, mise en page, direction artistique, affiches, interfaces graphiques.</p>
+          </div>
+          <div class="creative-card">
+            <i class="fas fa-mobile-screen-button"></i>
+            <h3>Design d'interface utilisateur</h3>
+            <p>Conception d'interfaces web et mobiles centrées utilisateur, wireframes et prototypes interactifs.</p>
+          </div>
+          <div class="creative-card">
+            <i class="fas fa-list-check"></i>
+            <h3>Gestion de projet créatif</h3>
+            <p>Planification, respect des délais, communication avec les parties prenantes, prise de décision.</p>
+          </div>
+          <div class="creative-card">
+            <i class="fas fa-eye"></i>
+            <h3>Sens esthétique &amp; veille</h3>
+            <p>Veille créative régulière, connaissance des tendances design, analyse critique de productions visuelles.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Communication -->
+      <div class="skills-section">
+        <h2 class="skills-heading"><i class="fas fa-comments"></i> Compétences en communication</h2>
+        <div class="comm-list">
+          <div class="comm-item">
+            <div class="comm-icon"><i class="fas fa-chalkboard"></i></div>
+            <div class="comm-text">
+              <h3>Présentation de projets</h3>
+              <p>Capacité à défendre mes créations, expliquer mes choix graphiques à des clients,
+              enseignants ou pairs lors de soutenances et revues de projet.</p>
+            </div>
+          </div>
+          <div class="comm-item">
+            <div class="comm-icon"><i class="fas fa-handshake"></i></div>
+            <div class="comm-text">
+              <h3>Travail collaboratif</h3>
+              <p>Expérience du travail en équipe sur des projets créatifs, écoute active, intégration
+              de feedbacks et coordination d'un groupe autour d'un objectif visuel commun.</p>
+            </div>
+          </div>
+          <div class="comm-item">
+            <div class="comm-icon"><i class="fas fa-magnifying-glass"></i></div>
+            <div class="comm-text">
+              <h3>Recherche &amp; veille créative</h3>
+              <p>Recherches inspirationnelles et fonctionnelles, création de moodboards,
+              analyse de l'existant pour enrichir le processus créatif.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Langues -->
+      <div class="skills-section">
+        <h2 class="skills-heading"><i class="fas fa-globe"></i> Langues</h2>
+        <div class="lang-grid">
+          <div class="lang-item">
+            <div class="lang-row">
+              <span class="lang-name">Français</span>
+              <span class="lang-level">Langue maternelle</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-row">
+              <span class="lang-name">Anglais</span>
+              <span class="lang-level">B2 – Courant</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== PAGE : CONTACT ===================== -->
+  <section id="page-contact" class="page">
+    <div class="page-wrap">
+      <p class="eyebrow">Travaillons ensemble</p>
+      <h1 class="page-title">Me <span class="accent">Contacter</span></h1>
+      <p class="page-subtitle">Une question, une proposition, un projet ? N'hésitez pas !</p>
+
+      <div class="contact-layout">
+
+        <!-- Formulaire -->
+        <div class="contact-form-col">
+          <h2>Envoyer un message</h2>
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xykldybv" method="POST" novalidate>
+            <div class="form-group">
+              <label for="c-name">Nom complet <span class="required">*</span></label>
+              <input type="text" id="c-name" name="name" placeholder="Votre nom" autocomplete="name" />
+              <span class="form-err" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label for="c-email">Adresse e-mail <span class="required">*</span></label>
+              <input type="email" id="c-email" name="email" placeholder="votre@email.com" autocomplete="email" />
+              <span class="form-err" id="err-email"></span>
+            </div>
+            <div class="form-group">
+              <label for="c-subject">Sujet</label>
+              <input type="text" id="c-subject" name="subject" placeholder="Sujet de votre message" autocomplete="off" />
+            </div>
+            <div class="form-group">
+              <label for="c-message">Message <span class="required">*</span></label>
+              <textarea id="c-message" name="message" rows="6" placeholder="Votre message..."></textarea>
+              <span class="form-err" id="err-message"></span>
+            </div>
+            <button type="submit" class="btn-primary btn-full">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
+            <div class="form-success" id="formSuccess" hidden>
+              <i class="fas fa-check-circle"></i>
+              Message envoyé ! Je vous répondrai dans les meilleurs délais.
+            </div>
+          </form>
+        </div>
+
+        <!-- Coordonnées -->
+        <div class="contact-info-col">
+          <h2>Coordonnées</h2>
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="ci-label">Email professionnel</span>
+                <a href="mailto:cassandresanita@gmail.com" class="ci-value">cassandresanita@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="fab fa-linkedin"></i></div>
+              <div>
+                <span class="ci-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/cassandre-sanita" target="_blank" rel="noopener noreferrer" class="ci-value">linkedin.com/in/cassandre-sanita</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="fab fa-instagram"></i></div>
+              <div>
+                <span class="ci-label">Instagram créatif</span>
+                <a href="https://www.instagram.com/cassandre_sanita_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="ci-value">@cassandre_sanita_</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CV -->
+          <div class="cv-card">
+  <div class="cv-card-top">
+    <div class="cv-card-icon"><i class="fas fa-file-pdf"></i></div>
+    <div>
+      <h3>Mon CV</h3>
+      <p>Alternance 2026 – 2027</p>
+    </div>
+  </div>
+  <!-- Nouveau bouton -->
+  <button type="button" class="btn-primary btn-full" id="triggerCvModal">
+    <i class="fas fa-download"></i> Télécharger mon CV
+  </button>
+</div>
+
+          <div class="availability-badge">
+            <span class="avail-dot"></span>
+            Disponible pour une alternance dès <strong>Septembre 2026</strong>
+          </div>
+
+        </div><!-- /.contact-info-col -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2026 Cassandre Sanita — Portfolio BUT MMI · Graphisme</p>
+      <div class="footer-nav">
+        <a href="javascript:void(0)" data-page="accueil">Accueil</a>
+        <a href="javascript:void(0)" data-page="apropos">À propos</a>
+        <a href="javascript:void(0)" data-page="projets">Projets</a>
+        <a href="javascript:void(0)" data-page="competences">Compétences</a>
+        <a href="javascript:void(0)" data-page="contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+  <!-- Bouton retour en haut -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Retour en haut">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+<!-- FENÊTRE DE VÉRIFICATION CV -->
+<div id="cvModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" id="closeCvModal">&times;</button>
+    <div class="modal-header">
+      <i class="fas fa-user-check"></i>
+      <h2>Vérification</h2>
+      <p>Merci d'entrer votre e-mail pour accéder au téléchargement.</p>
+    </div>
+    
+    <form id="cvDownloadForm">
+      <!-- CHAMP ANTI-ROBOT (Invisible pour les humains) -->
+      <div style="display:none;">
+        <input type="text" id="cvHoneypot" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="cv-visitor-email">Votre adresse e-mail <span class="required">*</span></label>
+        <input type="email" id="cv-visitor-email" placeholder="nom@entreprise.com" required>
+        <span class="form-err" id="err-cv-gate"></span>
+      </div>
+
+      <button type="submit" class="btn-primary btn-full">
+        <i class="fas fa-unlock-alt"></i> Valider et télécharger
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Notification de succès personnalisée -->
+<div id="cv-toast" class="cv-toast">
+  <i class="fas fa-check-circle"></i>
+  <span>Merci ! Le téléchargement a commencé.</span>
+</div>
+
+</body>
+</html>
